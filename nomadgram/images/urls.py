@@ -23,6 +23,11 @@ urlpatterns = [
         name='comment_image'
     ),
     url(
+        regex=r'^(?P<image_id>[0-9]+)/comments/(?P<comment_id>[0-9]+)/$',
+        view=views.ModerateComments.as_view(),
+        name='comment_image'
+    ),
+    url(
         regex=r'^comments/(?P<comment_id>[0-9]+)/$',
         view=views.Comment.as_view(),
         name='comment'
@@ -32,5 +37,4 @@ urlpatterns = [
         view=views.Search.as_view(),
         name='search'
     )
-
 ]
