@@ -2,6 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from . import models, serializers
+from nomadgram.users import models as user_models
+from nomadgram.users import serializers as user_serializers
 from nomadgram.notifications import views as notification_views
 
 
@@ -38,6 +40,18 @@ class Feed(APIView):
 
 
 class LikeImage(APIView):
+
+    def get(self, request, image_id, format=None):
+
+        likes = models.Like.objects.filter(image__id=image_id)
+
+        like_creators_ids = likes.values('creator_id')
+
+        users = user_models.User.objects.filter(id__in=like_creators_ids)
+
+        serializer = user_serializers.ListUserSerializer(users, many=True)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, image_id, format=None):
 
@@ -167,3 +181,19 @@ class ModerateComments(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class ImageDetail(APIView):
+
+    def get(self, request, image_id, format=None):
+
+        user = request.user
+
+        try:
+            image = models.Image.objects.get(id=image_id)
+        except models.Image.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = serializers.ImageSerializer(image)
+
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
