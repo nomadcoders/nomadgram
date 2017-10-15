@@ -50,7 +50,11 @@ THIRD_PARTY_APPS = [
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
     'rest_framework',  # REST framework
+    'rest_framework.authtoken',
     'taggit',  # Tags for the photos
+    'taggit_serializer',  # tag serializer
+    'rest_auth',  # rest auth
+    'rest_auth.registration',  # enable registration
 ]
 
 # Apps specific for this project go here.
@@ -264,8 +268,6 @@ SOCIALACCOUNT_ADAPTER = 'nomadgram.users.adapters.SocialAccountAdapter'
 # Custom user app defaults
 # Select the correct user model
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = 'users:redirect'
-LOGIN_URL = 'account_login'
 
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
@@ -284,7 +286,9 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
     ),
 }
+
+
+REST_USE_JWT = True
+ACCOUNT_LOGOUT_ON_GET = True
