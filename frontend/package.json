@@ -63,6 +63,8 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "reactotron-react-js": "^1.12.2",
+    "reactotron-redux": "^1.12.2",
     "redux-logger": "^3.0.6"
   }
 }
