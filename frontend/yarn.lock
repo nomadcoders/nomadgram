@@ -5701,6 +5701,10 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
+redux-devtools-extension@^2.13.2:
+  version "2.13.2"
+  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.2.tgz#e0f9a8e8dfca7c17be92c7124958a3b94eb2911d"
+
 redux-i18n@^1.5.10:
   version "1.5.10"
   resolved "https://registry.yarnpkg.com/redux-i18n/-/redux-i18n-1.5.10.tgz#a4a823f4332dd84f6e79ebacd46f716242e5a4e8"
