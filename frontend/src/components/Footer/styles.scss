@@ -7,14 +7,31 @@
   justify-content: space-between;
   font-weight: 600;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: $small-font-size;
+  margin-bottom: 55px;
+  flex-wrap: wrap;
+  @include breakpoint(mobileonly) {
+    justify-content: center;
+  }
   .column {
+    margin-bottom: 15px;
+    @include breakpoint(mobileonly) {
+      margin-bottom: 0;
+    }
     .nav {
       .list {
         display: flex;
+        flex-wrap: wrap;
+        @include breakpoint(mobileonly) {
+          justify-content: center;
+        }
         .list-item {
-          margin-left: 10px;
+          margin-right: 15px;
           color: $dark-blue;
+          cursor: pointer;
+          @include breakpoint(mobileonly) {
+            margin-bottom: 15px;
+          }
         }
       }
     }
