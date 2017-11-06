@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Route, Switch } from "react-router-dom";
-import styles from "./styles.scss";
+import "./styles.scss";
+import Auth from "components/Auth";
 import Footer from "components/Footer";
 
 const App = props => [
@@ -8,6 +10,10 @@ const App = props => [
   props.isLoggedIn ? <PrivateRoutes key={2} /> : <PublicRoutes key={2} />,
   <Footer key={3} />
 ];
+
+App.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired
+};
 
 const PrivateRoutes = props => (
   <Switch>
@@ -18,7 +24,7 @@ const PrivateRoutes = props => (
 
 const PublicRoutes = props => (
   <Switch>
-    <Route exact path="/" render={() => "login"} />,
+    <Route exact path="/" component={Auth} />,
     <Route path="/recover" render={() => "recover password"} />
   </Switch>
 );
