@@ -25,7 +25,7 @@
   }
   .button {
     @include blueButton();
-    svg  {
+    svg {
       margin-right: 10px;
     }
   }
@@ -57,18 +57,35 @@
       opacity: 0.8;
     }
   }
-  .facebookLink {
+  .facebook-link {
     display: flex;
     align-items: center;
     color: #385185;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     svg {
       margin-right: 5px;
     }
   }
-  .forgotLink {
+  .forgot-link {
     font-size: $small-font-size;
     color: $dark-blue;
+  }
+  .signup-header {
+    font-size: 17px;
+    color: $dark-grey;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .terms {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    line-height: 20px;
+    color: $dark-grey;
+    span {
+      font-weight: 600;
+      cursor: pointer;
+    }
   }
 }
