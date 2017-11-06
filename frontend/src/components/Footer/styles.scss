@@ -1,0 +1,25 @@
+.footer {
+  max-width: $max-page-width;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  .column {
+    .nav {
+      .list {
+        display: flex;
+        .list-item {
+          margin-left: 10px;
+          color: $dark-blue;
+        }
+      }
+    }
+    .copyright {
+      color: $dark-grey;
+    }
+  }
+}
