@@ -1,20 +1,18 @@
 .footer {
   max-width: $max-page-width;
   width: 100%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-weight: 600;
   text-transform: uppercase;
   font-size: $small-font-size;
-  margin-bottom: 55px;
+  margin: 55px auto;
   flex-wrap: wrap;
   @include breakpoint(mobileonly) {
     justify-content: center;
   }
   .column {
-    margin-bottom: 15px;
     @include breakpoint(mobileonly) {
       margin-bottom: 0;
     }
