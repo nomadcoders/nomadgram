@@ -1,0 +1,74 @@
+.form-component {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+  .form {
+    display: flex;
+    flex-direction: column;
+    input[type="submit"] {
+      margin-top: 10px;
+    }
+    .text-input {
+      border: 1px solid #efefef;
+      border-radius: 3px;
+      background-color: $bg-color;
+      margin-bottom: 5px;
+      font-size: $normal-font-size;
+      padding: 9px 0 7px 8px;
+      font-weight: 400;
+      &:focus {
+        outline: none;
+        border: 1px solid #b2b2b2;
+      }
+    }
+  }
+  .button {
+    @include blueButton();
+    svg  {
+      margin-right: 10px;
+    }
+  }
+  .divider {
+    text-transform: uppercase;
+    color: $dark-grey;
+    font-weight: 600;
+    margin: 20px 0;
+    margin-bottom: 20px;
+    position: relative;
+    &:before {
+      content: "";
+      width: 42%;
+      position: absolute;
+      background-color: $dark-grey;
+      height: 1px;
+      left: 0;
+      top: 6px;
+      opacity: 0.8;
+    }
+    &:after {
+      content: "";
+      width: 42%;
+      position: absolute;
+      background-color: $dark-grey;
+      height: 1px;
+      right: 0;
+      top: 6px;
+      opacity: 0.8;
+    }
+  }
+  .facebookLink {
+    display: flex;
+    align-items: center;
+    color: #385185;
+    justify-content: center;
+    margin-bottom: 30px;
+    svg {
+      margin-right: 5px;
+    }
+  }
+  .forgotLink {
+    font-size: $small-font-size;
+    color: $dark-blue;
+  }
+}
