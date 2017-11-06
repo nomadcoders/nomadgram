@@ -12,6 +12,8 @@ const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const getClientEnvironment = require("./env");
 const paths = require("./paths");
 
+console.log(paths.appSrc);
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = "/";
@@ -191,7 +193,8 @@ module.exports = {
               {
                 loader: require.resolve("sass-loader"),
                 options: {
-                  sourceMap: true
+                  sourceMap: true,
+                  data: `@import "${paths.appSrc}/config/_variables.scss";`
                 }
               }
             ]
