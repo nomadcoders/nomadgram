@@ -4,14 +4,26 @@
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  margin-top: 30px;
+  margin-top: 35px;
   justify-content: center;
   align-items: center;
+  @include breakpoint(mobileonly) {
+    margin-top: 10px;
+  }
   .column {
     width: 40%;
+    @include breakpoint(mobileonly) {
+      &:first-child {
+        display: none;
+      }
+    }
     &:last-child {
       width: 38%;
       margin-left: 35px;
+      @include breakpoint(mobileonly) {
+        width: 100%;
+        margin: 0;
+      }
     }
     .app-box {
       display: flex;
@@ -32,6 +44,10 @@
       text-align: center;
       padding: 15px;
       @include boxBorder(no);
+      @include breakpoint(mobileonly) {
+        background-color: transparent;
+        border: 0;
+      }
       .change-link {
         color: $light-blue;
         cursor: pointer;
