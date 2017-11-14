@@ -7,12 +7,17 @@
   margin-top: 35px;
   justify-content: center;
   align-items: center;
-  @include breakpoint(mobileonly) {
+  @include breakpoint("phone") {
     margin-top: 10px;
   }
   .column {
     width: 40%;
-    @include breakpoint(mobileonly) {
+    @include breakpoint("phone") {
+      &:first-child {
+        display: none;
+      }
+    }
+    @include breakpoint("tablet") {
       &:first-child {
         display: none;
       }
@@ -20,8 +25,13 @@
     &:last-child {
       width: 38%;
       margin-left: 35px;
-      @include breakpoint(mobileonly) {
+      @include breakpoint("phone") {
         width: 100%;
+        margin: 0;
+      }
+      @include breakpoint("tablet") {
+        width: 70%;
+        max-width: 350px;
         margin: 0;
       }
     }
@@ -44,7 +54,7 @@
       text-align: center;
       padding: 15px;
       @include boxBorder(no);
-      @include breakpoint(mobileonly) {
+      @include breakpoint("phone") {
         background-color: transparent;
         border: 0;
       }
