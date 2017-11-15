@@ -5,7 +5,11 @@ import formStyles from "shared/formStyles.scss";
 
 const LoginForm = (props, context) => (
   <div className={formStyles.formComponent}>
-    <form className={formStyles.form} onSubmit={props.handleSubmit}>
+    <form
+      className={formStyles.form}
+      onSubmit={props.handleSubmit}
+      method="post"
+    >
       <input
         type="text"
         placeholder={context.t("Username")}
