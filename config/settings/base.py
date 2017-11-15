@@ -333,3 +333,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERSION': 'v2.4'  
     }
 }  
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'nomadgram.users.serializers.SignUpSerializer'
+}

@@ -58,7 +58,7 @@ function usernameLogin(username, password) {
   };
 }
 
-function createAccount(username, password, email) {
+function createAccount(username, password, email, name) {
   return function(dispatch) {
     fetch("/rest-auth/registration/", {
       method: "POST",
@@ -69,7 +69,8 @@ function createAccount(username, password, email) {
         username,
         password1: password,
         password2: password,
-        email
+        email,
+        name
       })
     })
       .then(response => response.json())
@@ -103,7 +104,7 @@ function reducer(state = initialState, action) {
 
 function applySetToken(state, action) {
   const { token } = action;
-  localStorage.setItem("jwt", token);
+  // localStorage.setItem("jwt", token);
   return {
     ...state,
     isLoggedIn: true,

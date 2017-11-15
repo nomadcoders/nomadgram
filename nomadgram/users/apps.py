@@ -11,4 +11,4 @@ class UsersConfig(AppConfig):
             Users signal registration
         """
 
-        from .signals import pre_social_login
+        from .signals import user_signed_up
