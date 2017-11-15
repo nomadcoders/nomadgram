@@ -25,6 +25,10 @@
   }
   .button {
     @include blueButton();
+    i {
+      font-size: 18px;
+      margin-right: 5px;
+    }
     svg {
       margin-right: 10px;
     }
