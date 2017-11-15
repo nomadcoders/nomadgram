@@ -5543,6 +5543,10 @@ react-error-overlay@^2.0.2:
     settle-promise "1.0.0"
     source-map "0.5.6"
 
+react-facebook-login@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/react-facebook-login/-/react-facebook-login-3.6.2.tgz#1965f6af54cc90341b788d0752185cfd25a14d30"
+
 react-ionicons@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/react-ionicons/-/react-ionicons-2.0.2.tgz#4cfd7ca4187eadd82781a2f5f11289fca502fc53"

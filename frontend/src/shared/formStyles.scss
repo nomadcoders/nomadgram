@@ -58,14 +58,21 @@
     }
   }
   .facebook-link {
-    display: flex;
     align-items: center;
     color: #385185;
     justify-content: center;
     margin-bottom: 25px;
     cursor: pointer;
-    svg {
+    background-color: white;
+    border: 0;
+    font-size: $normal-font-size;
+    text-align: center;
+    i {
       margin-right: 5px;
+    }
+    &:focus,
+    &:active {
+      outline: none;
     }
   }
   .forgot-link {
