@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import "./styles.scss";
 import Auth from "components/Auth";
 import Footer from "components/Footer";
@@ -19,7 +19,11 @@ App.propTypes = {
 
 const PrivateRoutes = props => (
   <Switch>
+<<<<<<< HEAD
     <Route exact path="/" component={Feed} />
+=======
+    <Route exact path="/" render={() => "feed"} />
+>>>>>>> dbc21089343a5c68e2aa3dc5a8d24544ec7374de
     <Route path="/explore" render={() => "explore"} />
   </Switch>
 );
@@ -31,4 +35,4 @@ const PublicRoutes = props => (
   </Switch>
 );
 
-export default App;
+export default withRouter(App);
