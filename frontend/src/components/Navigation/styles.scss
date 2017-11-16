@@ -3,6 +3,7 @@
   @include boxBorder(no);
   display: flex;
   justify-content: center;
+  margin-bottom: 60px;
   .inner {
     max-width: $max-page-width;
     display: flex;
