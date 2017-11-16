@@ -55,7 +55,10 @@ function getFeed() {
 
 function likePhoto(photoId) {
   return (dispatch, getState) => {
+<<<<<<< HEAD
     dispatch(doLikePhoto(photoId));
+=======
+>>>>>>> 8be1dac05e91f11c4fe57216f03c706e23d2118a
     const { user: { token } } = getState();
     fetch(`/images/${photoId}/likes/`, {
       method: "POST",
@@ -65,8 +68,13 @@ function likePhoto(photoId) {
     }).then(response => {
       if (response.status === 401) {
         dispatch(userActions.logout());
+<<<<<<< HEAD
       } else if (!response.ok) {
         dispatch(doUnlikePhoto(photoId));
+=======
+      } else if (response.ok) {
+        dispatch(doLikePhoto(photoId));
+>>>>>>> 8be1dac05e91f11c4fe57216f03c706e23d2118a
       }
     });
   };
@@ -74,7 +82,10 @@ function likePhoto(photoId) {
 
 function unlikePhoto(photoId) {
   return (dispatch, getState) => {
+<<<<<<< HEAD
     dispatch(doUnlikePhoto(photoId));
+=======
+>>>>>>> 8be1dac05e91f11c4fe57216f03c706e23d2118a
     const { user: { token } } = getState();
     fetch(`/images/${photoId}/unlikes/`, {
       method: "DELETE",
@@ -84,8 +95,13 @@ function unlikePhoto(photoId) {
     }).then(response => {
       if (response.status === 401) {
         dispatch(userActions.logout());
+<<<<<<< HEAD
       } else if (!response.ok) {
         dispatch(doLikePhoto(photoId));
+=======
+      } else if (response.ok) {
+        dispatch(doUnlikePhoto(photoId));
+>>>>>>> 8be1dac05e91f11c4fe57216f03c706e23d2118a
       }
     });
   };
