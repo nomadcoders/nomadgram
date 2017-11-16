@@ -21,7 +21,7 @@ class AccountAdapter(DefaultAccountAdapter):
                 user.set_password(password1)
             user.save()
 
+
 class SocialAccountAdapter(DefaultSocialAccountAdapter):
     def is_open_for_signup(self, request, sociallogin):
         return getattr(settings, 'ACCOUNT_ALLOW_REGISTRATION', True)
-
