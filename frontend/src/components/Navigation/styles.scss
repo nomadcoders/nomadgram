@@ -4,19 +4,25 @@
   display: flex;
   justify-content: center;
   margin-bottom: 60px;
+  box-sizing: border-box;
   .inner {
-    max-width: $max-page-width;
+    max-width: $max-page-width + 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 77px;
-    padding: 25px 0;
+    padding: 25px 40px;
     .column {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 33%;
+      &:nth-child(2) {
+        @include breakpoint("phone") {
+          display: none;
+        }
+      }
       &:first-child {
         justify-content: flex-start;
       }
@@ -27,7 +33,8 @@
         max-width: 125px;
       }
       .search-input {
-        width: 215px;
+        max-width: 215px;
+        width: 100%;
         box-sizing: border-box;
         padding: 5px;
         border: solid 1px #dbdbdb;
@@ -35,6 +42,7 @@
         background-color: #fafafa;
         font-size: $normal-font-size;
         font-weight: 300;
+        margin-right: 15px;
         &::placeholder {
           color: $dark-grey;
         }
