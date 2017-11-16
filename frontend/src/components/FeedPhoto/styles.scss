@@ -1,0 +1,9 @@
+.feed-photo {
+  @include boxBorder(yes);
+  width: 100%;
+  max-width: $max-card-width;
+  margin-bottom: 60px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
