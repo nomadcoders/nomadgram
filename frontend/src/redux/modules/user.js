@@ -16,7 +16,7 @@ function saveToken(token) {
 // API actions
 
 function facebookLogin(access_token) {
-  return function(dispatch) {
+  return dispatch => {
     fetch("/users/login/facebook/", {
       method: "POST",
       headers: {
@@ -37,7 +37,7 @@ function facebookLogin(access_token) {
 }
 
 function usernameLogin(username, password) {
-  return function(dispatch) {
+  return dispatch => {
     fetch("/rest-auth/login/", {
       method: "POST",
       headers: {
@@ -59,7 +59,7 @@ function usernameLogin(username, password) {
 }
 
 function createAccount(username, password, email, name) {
-  return function(dispatch) {
+  return dispatch => {
     fetch("/rest-auth/registration/", {
       method: "POST",
       headers: {
