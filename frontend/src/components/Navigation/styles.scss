@@ -5,6 +5,9 @@
   justify-content: center;
   margin-bottom: 60px;
   box-sizing: border-box;
+  @include breakpoint("phone") {
+    margin-bottom: 0;
+  }
   .inner {
     max-width: $max-page-width + 80px;
     display: flex;

@@ -3,6 +3,10 @@
   width: 100%;
   max-width: $max-card-width;
   margin-bottom: 60px;
+  @include breakpoint("phone") {
+    background-color: transparent;
+    border: 0;
+  }
   &:last-child {
     margin-bottom: 0;
   }
