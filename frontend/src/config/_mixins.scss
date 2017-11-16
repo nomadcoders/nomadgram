@@ -3,7 +3,7 @@ $desktop-width: 875px;
 $xl-desktop-width: 1351px;
 $phone-width: 320px;
 $iphone6-width: 375px;
-$iphone6plus-width: 500px;
+$iphone6plus-width: 550px;
 
 @mixin breakpoint($breakpoint) {
   @if $breakpoint == "tablet" {

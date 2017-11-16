@@ -6,8 +6,36 @@
   @include breakpoint("phone") {
     background-color: transparent;
     border: 0;
+    margin-bottom: 30px;
   }
   &:last-child {
     margin-bottom: 0;
+  }
+  .header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $border-color;
+    .image {
+      width: 30px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    .header-column {
+      display: flex;
+      flex-direction: column;
+      .creator {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      .location {
+        font-size: $small-font-size;
+      }
+    }
+  }
+  .meta {
+    padding: 15px;
+    padding-bottom: 0;
+    padding-top: 10px;
   }
 }
