@@ -5,7 +5,6 @@ import PhotoActions from "components/PhotoActions";
 import PhotoComments from "components/PhotoComments";
 import TimeStamp from "components/TimeStamp";
 import CommentBox from "components/CommentBox";
-import LikeViewer from "components/LikeViewer";
 
 const FeedPhoto = (props, context) => {
   return (
@@ -37,7 +36,7 @@ const FeedPhoto = (props, context) => {
         <TimeStamp time={props.natural_time} />
         <CommentBox photoId={props.id} />
       </div>
-      {props.seeingLikes ? <LikeViewer /> : null}
+      {/* {props.seeingLikes ? : null} */}
     </div>
   );
 };
