@@ -1,8 +1,36 @@
-.overlay {
+.container {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .box {
+    @include boxBorder(no);
+    width: 100%;
+    max-width: $max-card-width;
+    .header {
+      display: flex;
+      padding: 14px 0;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 2px solid $light-grey;
+      .title {
+        order: 1;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 600;
+        font-size: $big-font-size;
+      }
+    }
+    .content {
+      min-height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
