@@ -40,6 +40,7 @@ const FeedPhoto = (props, context) => {
 };
 
 FeedPhoto.propTypes = {
+  id: PropTypes.number.isRequired,
   creator: PropTypes.shape({
     profile_image: PropTypes.string,
     username: PropTypes.string.isRequired
@@ -50,6 +51,7 @@ FeedPhoto.propTypes = {
   caption: PropTypes.string.isRequired,
   comments: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.number.isRequired,
       message: PropTypes.string.isRequired,
       creator: PropTypes.shape({
         profile_image: PropTypes.string,
