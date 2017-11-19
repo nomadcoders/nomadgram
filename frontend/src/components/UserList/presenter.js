@@ -13,15 +13,25 @@ const UserList = props => (
           <Ionicon icon="md-close" fontSize="20px" color="black" />
         </span>
       </header>
-      <div className={styles.content}>{props.loading ? <Loading /> : null}</div>
+      <div className={styles.content}>
+        {props.loading ? <Loading /> : <RenderUsers list={props.userList} />}
+      </div>
     </div>
   </div>
 );
+
+const RenderUsers = props => props.list.map(user => user.username);
+
+RenderUsers.propTypes = {
+  list: PropTypes.array
+};
+
 UserList.propTypes = {
   title: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   users: PropTypes.array,
-  closeLikes: PropTypes.func.isRequired
+  closeLikes: PropTypes.func.isRequired,
+  userList: PropTypes.array
 };
 
 export default UserList;
