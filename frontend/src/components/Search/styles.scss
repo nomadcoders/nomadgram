@@ -20,5 +20,10 @@
       display: block;
       font-weight: 600;
     }
+    .content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
   }
 }

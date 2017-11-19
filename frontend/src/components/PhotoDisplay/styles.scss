@@ -1,0 +1,38 @@
+.container {
+  width: 30%;
+  height: 220px;
+  margin-bottom: 50px;
+  overflow: hidden;
+  position: relative;
+  .photo {
+    min-height: 100%;
+    max-width: 100%;
+  }
+  &:hover .overlay {
+    opacity: 1;
+  }
+  .overlay {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    .data {
+      color: white;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      &:first-child {
+        margin-right: 10px;
+      }
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+}

@@ -15,7 +15,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { match: { params: { searchTerm } } } = ownProps;
   return {
     searchByTerm: () => {
-      console.log(searchTerm);
       dispatch(userActions.searchByTerm(searchTerm));
     }
   };
