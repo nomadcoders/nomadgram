@@ -37,7 +37,9 @@ const FeedPhoto = (props, context) => {
         <TimeStamp time={props.natural_time} />
         <CommentBox photoId={props.id} />
       </div>
-      {props.seeingLikes && <UserList title={context.t("Likes")} />}
+      {props.seeingLikes && (
+        <UserList title={context.t("Likes")} closeLikes={props.closeLikes} />
+      )}
     </div>
   );
 };
