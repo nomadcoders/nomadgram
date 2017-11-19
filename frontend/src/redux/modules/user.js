@@ -4,6 +4,9 @@
 
 const SAVE_TOKEN = "SAVE_TOKEN";
 const LOGOUT = "LOGOUT";
+const SET_PHOTO_LIKES = "SET_PHOTO_LIKES";
+const FOLLOW_USER = "FOLLOW_USER";
+const UNFOLLOW_USER = "UNFOLLOW_USER";
 
 // action creators
 
@@ -17,6 +20,27 @@ function saveToken(token) {
 function logout() {
   return {
     type: LOGOUT
+  };
+}
+
+function followUser(userId) {
+  return {
+    type: FOLLOW_USER,
+    userId
+  };
+}
+
+function unfollowUser(userId) {
+  return {
+    type: UNFOLLOW_USER,
+    userId
+  };
+}
+
+function setPhotoLikes(likes) {
+  return {
+    type: SET_PHOTO_LIKES,
+    likes
   };
 }
 
@@ -90,6 +114,40 @@ function createAccount(username, password, email, name) {
   };
 }
 
+function getPhotoLikes(photoId) {
+  return (dispatch, getState) => {
+    const { user: { token } } = getState();
+    fetch(`/images/${photoId}/likes/`, {
+      headers: {
+        Authorization: `JWT ${token}`
+      }
+    })
+      .then(response => {
+        if (response.status === 401) {
+          dispatch(logout());
+        }
+        return response.json();
+      })
+      .then(json => {
+        dispatch(setPhotoLikes(json));
+      });
+  };
+}
+
+function followUser(userId) {
+  return (dispatch, getState) => {
+    const { user: { token } } = getState();
+    dispatch(followUser(userId));
+  };
+}
+
+function unfollowUser(userId) {
+  return (dispatch, getState) => {
+    const { user: { token } } = getState();
+    dispatch(unfollowUser(userId));
+  };
+}
+
 // initial state
 
 const initialState = {
@@ -105,6 +163,12 @@ function reducer(state = initialState, action) {
       return applySetToken(state, action);
     case LOGOUT:
       return applyLogout(state, action);
+    case SET_PHOTO_LIKES:
+      return applyPhotoLikes(state, action);
+    case FOLLOW_USER:
+      return applyFollowUser(state, action);
+    case UNFOLLOW_USER:
+      return applyUnfollowUser(state, action);
     default:
       return state;
   }
@@ -129,13 +193,49 @@ function applyLogout(state, action) {
   };
 }
 
+function applyPhotoLikes(state, action) {
+  const { likes } = action;
+  return {
+    ...state,
+    userList: likes
+  };
+}
+
+function applyFollowUser(state, action) {
+  const { userId } = action;
+  const { userList } = state;
+  const updatedUserList = userList.map(user => {
+    if (user.id === userId) {
+      return { ...user, following: true };
+    }
+    return user;
+  });
+  return {
+    ...state,
+    userList: updatedUserList
+  };
+}
+
+function applyUnfollowUser(state, action) {
+  const { userId } = action;
+  const { userList } = state;
+  const updatedUserList = userList.map(user => {
+    if (user.id === userId) {
+      return { ...user, following: false };
+    }
+    return user;
+  });
+  return { ...state, userList: updatedUserList };
+}
+
 // exports
 
 const actionCreators = {
   facebookLogin,
   usernameLogin,
   createAccount,
-  logout
+  logout,
+  getPhotoLikes
 };
 
 export { actionCreators };
