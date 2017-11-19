@@ -80,7 +80,8 @@ FeedPhoto.propTypes = {
   likes: PropTypes.arrayOf(
     PropTypes.shape({
       profile_image: PropTypes.string,
-      username: PropTypes.string.isRequired
+      username: PropTypes.string.isRequired,
+      name: PropTypes.string
     }).isRequired
   )
 };

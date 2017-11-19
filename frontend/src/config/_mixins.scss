@@ -56,11 +56,12 @@ $iphone6plus-width: 550px;
   line-height: 26px;
   cursor: pointer;
   width: 100%;
+  padding: 2px 9px;
   &:focus,
   &:active {
     outline: none;
   }
   &:active {
-    opacity: 0.9;
+    opacity: 0.7;
   }
 }
