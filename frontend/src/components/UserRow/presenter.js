@@ -6,7 +6,7 @@ const UserRow = (props, context) => (
   <div className={styles.container}>
     <div className={styles.column}>
       <img
-        src={props.profile_image || require("images/noPhoto.jpg")}
+        src={props.user.profile_image || require("images/noPhoto.jpg")}
         alt={props.user.username}
         className={props.big ? styles.bigAvatar : styles.avatar}
       />
