@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./styles.scss";
 import Loading from "components/Loading";
-import UserRow from "components/UserRow";
+import UserDisplay from "components/UserDisplay";
 
 const Search = (props, context) => {
   return (
@@ -13,6 +13,10 @@ const Search = (props, context) => {
         {!props.loading &&
           props.userList.length < 1 && (
             <NotFound text={context.t("Nothing found :(")} />
+          )}
+        {!props.loading &&
+          props.userList.length > 0 && (
+            <RenderUserSearch userList={props.userList} />
           )}
       </div>
       <div className={styles.section}>
@@ -27,10 +31,10 @@ const Search = (props, context) => {
   );
 };
 
-const RenderSearch = props => (
+const RenderUserSearch = props => (
   <div className={styles.search}>
     {props.userList.map(user => (
-      <UserRow big={true} user={user} key={user.id} />
+      <UserDisplay vertical={true} user={user} key={user.id} />
     ))}
   </div>
 );

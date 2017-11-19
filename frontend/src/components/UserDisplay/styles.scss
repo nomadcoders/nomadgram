@@ -1,4 +1,5 @@
-.container {
+.horizontal,
+.vertical {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,9 +7,6 @@
   width: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid $light-grey;
-  &:last-child {
-    border: 0;
-  }
   @include breakpoint("phone-tablet") {
     border-bottom: 0;
   }
@@ -37,5 +35,38 @@
     .button {
       @include blueButton();
     }
+  }
+}
+
+.horizontal {
+  &:last-child {
+    border: 0;
+  }
+}
+
+.vertical {
+  flex-direction: column;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  @include boxBorder(yes);
+  .column {
+    flex-direction: column;
+    .avatar {
+      width: 78px;
+      margin-bottom: 20px;
+    }
+    .user {
+      text-align: center;
+      margin: 0;
+      .username {
+        margin-bottom: 7px;
+      }
+    }
+  }
+  .button {
+    margin-top: 15px;
+    min-width: 95px;
   }
 }

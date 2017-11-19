@@ -30,6 +30,9 @@ class Container extends Component {
     const { term } = this.state;
     event.preventDefault();
     goToSearch(term);
+    this.setState({
+      term: ""
+    });
   };
 }
 
