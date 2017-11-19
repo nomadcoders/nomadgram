@@ -5,4 +5,20 @@
   max-width: $max-page-width;
   margin: 0 auto;
   align-items: center;
+  .section {
+    width: 100%;
+    margin-bottom: 80px;
+    .title {
+      text-align: left;
+      color: $dark-grey;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .not-found {
+      text-align: center;
+      width: 100%;
+      display: block;
+      font-weight: 600;
+    }
+  }
 }
