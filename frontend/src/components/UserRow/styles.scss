@@ -6,6 +6,12 @@
   width: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid $light-grey;
+  &:last-child {
+    border: 0;
+  }
+  @include breakpoint("phone-tablet") {
+    border-bottom: 0;
+  }
   .column {
     display: flex;
     align-items: center;
