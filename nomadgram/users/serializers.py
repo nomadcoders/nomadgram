@@ -30,14 +30,24 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 class ListUserSerializer(serializers.ModelSerializer):
 
+    following = serializers.SerializerMethodField()
+
     class Meta:
         model = models.User
         fields = (
             'id',
             'profile_image',
             'username',
-            'name'
+            'name',
+            'following'
         )
+
+    def get_following(self, obj):
+        if 'request' in self.context:
+            request = self.context['request']
+            if obj in request.user.following.all():
+                return True
+        return False
 
 
 class SignUpSerializer(RegisterSerializer):
@@ -51,7 +61,7 @@ class SignUpSerializer(RegisterSerializer):
             'password1': self.validated_data.get('password1', ''),
             'email': self.validated_data.get('email', '')
         }
-    
+
     def save(self, request):
         adapter = get_adapter()
         user = adapter.new_user(request)

@@ -23,14 +23,14 @@ function logout() {
   };
 }
 
-function followUser(userId) {
+function setFollowUser(userId) {
   return {
     type: FOLLOW_USER,
     userId
   };
 }
 
-function unfollowUser(userId) {
+function setUnfollowUser(userId) {
   return {
     type: UNFOLLOW_USER,
     userId
@@ -137,14 +137,14 @@ function getPhotoLikes(photoId) {
 function followUser(userId) {
   return (dispatch, getState) => {
     const { user: { token } } = getState();
-    dispatch(followUser(userId));
+    dispatch(setFollowUser(userId));
   };
 }
 
 function unfollowUser(userId) {
   return (dispatch, getState) => {
     const { user: { token } } = getState();
-    dispatch(unfollowUser(userId));
+    dispatch(setUnfollowUser(userId));
   };
 }
 
@@ -235,7 +235,9 @@ const actionCreators = {
   usernameLogin,
   createAccount,
   logout,
-  getPhotoLikes
+  getPhotoLikes,
+  followUser,
+  unfollowUser
 };
 
 export { actionCreators };
