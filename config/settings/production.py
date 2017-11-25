@@ -10,7 +10,6 @@ Production Configurations
 """
 
 
-
 from .base import *  # noqa
 
 # SECRET CONFIGURATION
@@ -47,7 +46,7 @@ X_FRAME_OPTIONS = 'DENY'
 # ------------------------------------------------------------------------------
 # Hosts/domain names that are valid for this site
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['nomadgram.com', ])
+ALLOWED_HOSTS = ["*"]
 # END SITE CONFIGURATION
 
 INSTALLED_APPS += ['gunicorn', ]
@@ -82,8 +81,14 @@ AWS_HEADERS = {
 
 #  See:http://stackoverflow.com/questions/10390244/
 from storages.backends.s3boto3 import S3Boto3Storage
-StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')
-MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media')
+
+
+def StaticRootS3BotoStorage(): return S3Boto3Storage(location='static')
+
+
+def MediaRootS3BotoStorage(): return S3Boto3Storage(location='media')
+
+
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
 
 MEDIA_URL = 'https://s3.amazonaws.com/%s/media/' % AWS_STORAGE_BUCKET_NAME
@@ -103,7 +108,8 @@ INSTALLED_APPS = ['collectfast', ] + INSTALLED_APPS
 # ------------------------------------------------------------------------------
 DEFAULT_FROM_EMAIL = env('DJANGO_DEFAULT_FROM_EMAIL',
                          default='nomadgram <noreply@nomadgram.com>')
-EMAIL_SUBJECT_PREFIX = env('DJANGO_EMAIL_SUBJECT_PREFIX', default='[nomadgram]')
+EMAIL_SUBJECT_PREFIX = env(
+    'DJANGO_EMAIL_SUBJECT_PREFIX', default='[nomadgram]')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
 
 # Anymail with Mailgun
@@ -133,7 +139,8 @@ DATABASES['default'] = env.db('DATABASE_URL')
 # CACHING
 # ------------------------------------------------------------------------------
 
-REDIS_LOCATION = '{0}/{1}'.format(env('REDIS_URL', default='redis://127.0.0.1:6379'), 0)
+REDIS_LOCATION = '{0}/{1}'.format(env('REDIS_URL',
+                                      default='redis://127.0.0.1:6379'), 0)
 # Heroku URL does not pass the DB number, so we parse it in
 CACHES = {
     'default': {
