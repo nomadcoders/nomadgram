@@ -182,6 +182,8 @@ class Search(APIView):
         else:
 
             images = models.Image.objects.all()[:20]
+            serializer = serializers.CountImageSerializer(images, many=True)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 
 class ModerateComments(APIView):
