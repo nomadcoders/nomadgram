@@ -34,7 +34,8 @@ class Images(APIView):
         sorted_list = sorted(
             image_list, key=lambda image: image.created_at, reverse=True)
 
-        serializer = serializers.ImageSerializer(sorted_list, many=True, context={'request': request})
+        serializer = serializers.ImageSerializer(
+            sorted_list, many=True, context={'request': request})
 
         return Response(serializer.data)
 
@@ -64,7 +65,8 @@ class LikeImage(APIView):
 
         users = user_models.User.objects.filter(id__in=like_creators_ids)
 
-        serializer = user_serializers.ListUserSerializer(users, many=True, context={'request': request})
+        serializer = user_serializers.ListUserSerializer(
+            users, many=True, context={'request': request})
 
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 
@@ -179,7 +181,7 @@ class Search(APIView):
 
         else:
 
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+            images = models.Image.objects.all()[:20]
 
 
 class ModerateComments(APIView):
@@ -216,7 +218,8 @@ class ImageDetail(APIView):
         except models.Image.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        serializer = serializers.ImageSerializer(image, context={'request': request})
+        serializer = serializers.ImageSerializer(
+            image, context={'request': request})
 
         return Response(data=serializer.data, status=status.HTTP_200_OK)
 
