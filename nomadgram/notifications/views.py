@@ -20,8 +20,6 @@ class Notifications(APIView):
 
 def create_notification(creator, to, notification_type, image=None, comment=None):
 
-    print(creator, to, notification_type, image, comment)
-
     notification = models.Notification.objects.create(
         creator=creator,
         to=to,
