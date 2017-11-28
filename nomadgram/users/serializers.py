@@ -8,7 +8,7 @@ from nomadgram.images import serializers as images_serializers
 
 class UserProfileSerializer(serializers.ModelSerializer):
 
-    images = images_serializers.CountImageSerializer(many=True, read_only=True)
+    images = images_serializers.ImageSerializer(many=True, read_only=True)
     post_count = serializers.ReadOnlyField()
     followers_count = serializers.ReadOnlyField()
     following_count = serializers.ReadOnlyField()
@@ -28,7 +28,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
             'images',
             'is_self'
         )
-    
+
     def get_is_self(self, user):
         if 'request' in self.context:
             request = self.context['request']
