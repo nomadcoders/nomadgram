@@ -45,6 +45,7 @@ class Images(APIView):
 
         serializer = serializers.InputImageSerializer(data=request.data)
 
+
         if serializer.is_valid():
 
             serializer.save(creator=user)
@@ -52,6 +53,7 @@ class Images(APIView):
             return Response(data=serializer.data, status=status.HTTP_201_CREATED)
 
         else:
+            print(serializer.errors)
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -175,14 +177,16 @@ class Search(APIView):
             images = models.Image.objects.filter(
                 tags__name__in=hashtags).distinct()
 
-            serializer = serializers.ImageSerializer(images, many=True, context={'request': request})
+            serializer = serializers.ImageSerializer(
+                images, many=True, context={'request': request})
 
             return Response(data=serializer.data, status=status.HTTP_200_OK)
 
         else:
 
             images = models.Image.objects.all()[:20]
-            serializer = serializers.ImageSerializer(images, many=True, context={'request': request})
+            serializer = serializers.ImageSerializer(
+                images, many=True, context={'request': request})
             return Response(data=serializer.data, status=status.HTTP_200_OK)
 
 

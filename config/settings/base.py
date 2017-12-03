@@ -57,6 +57,7 @@ THIRD_PARTY_APPS = [
     'rest_auth',  # rest auth
     'rest_auth.registration',  # enable registration
     'corsheaders',  # To accept requests from React
+    'imagekit',  # to optimize image
 ]
 
 # Apps specific for this project go here.
