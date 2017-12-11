@@ -35,6 +35,7 @@ djangorestframework = "*"
 "django-cors-headers" = "*"
 "djangorestframework-jwt" = "*"
 "django-imagekit" = "*"
+awsebcli = "*"
 
 
 [dev-packages]

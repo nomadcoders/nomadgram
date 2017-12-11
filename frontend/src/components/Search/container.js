@@ -23,7 +23,6 @@ class Container extends Component {
   };
 
   componentWillReceiveProps = nextProps => {
-    const { searchByTerm, pathname } = this.props;
     if (nextProps.userList && nextProps.imageList) {
       this.setState({
         loading: false
