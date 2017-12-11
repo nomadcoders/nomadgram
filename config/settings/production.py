@@ -12,7 +12,7 @@ Production Configurations
 
 from .base import *  # noqa
 
-print(env())
+print(env('DJANGO_SECRET_KEY'))
 
 # SECRET CONFIGURATION
 # ------------------------------------------------------------------------------
