@@ -12,6 +12,8 @@ Production Configurations
 
 from .base import *  # noqa
 
+print(env())
+
 # SECRET CONFIGURATION
 # ------------------------------------------------------------------------------
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
