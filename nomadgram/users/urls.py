@@ -34,6 +34,11 @@ urlpatterns = [
         name='user_following'
     ),
     url(
+        regex=r'^push/$',
+        view=views.RegisterPush.as_view(),
+        name='push'
+    ),
+    url(
         regex=r'^(?P<username>\w+)/$',
         view=views.UserProfile.as_view(),
         name='user_profile'
